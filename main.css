@@ -1,0 +1,15 @@
+body {
+    text-align: center;
+}
+header {
+    background-color: #691E7D;
+    display: solid;
+}
+
+h2 {
+    padding: 10px;
+}
+
+.container {
+    font-weight: bolder;
+}

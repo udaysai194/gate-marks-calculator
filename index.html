@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="./main.css">
+
+    <title>GATE marks calculator</title>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h3 class="text-center" style="padding:10px 0px;color:white;">MARKS CALCULATOR</h3>
+        <div class="clearfix"></div>
+      </div>
+    </header>
+    <div style="height:7px;"></div>
+    <div class="container">
+      <!--two inputs-->
+      <div class="row">
+        <div class="col-md-6">
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="QNo">Q No.</label>
+              </div>
+              <!-- q no start here text field -->
+              <input type="text" class="form-control" placeholder="starting Question No." id="QNo" onchange="getQNo();">
+            </div>
+        </div>
+        <div class="col-md-6">
+          <div class="input-group mb-3">
+              <div class="input-group-append">
+                  <label class="input-group-text" for="marksWeight">Marks Weight</label>
+              </div>
+              <!-- selecting marks weightage -->
+              <select class="custom-select" id="marksWeight" onchange="getSelect();">
+                <option value="1">1</option>
+                <option value="2">2</option>
+              </select>
+          </div>
+        </div>
+      </div><!--row ends-->
+
+      <!--question label-->
+      <h2>Question No. <span id="QNoLabel">1</span></h2>
+
+      <!--answer buttons-->
+      <div class="row">
+        <div class="col-4">
+          <button class="btn btn-outline-success btn-block btn-lg" onclick="onCorrect();"><i class="fa fa-check"></i></button>
+        </div>
+        <div class="col-4">
+          <button class="btn btn-outline-danger btn-block btn-lg" onclick="onWrong();"><i class="fa fa-times"></i></button>
+        </div>
+        <div class="col-4">
+          <button class="btn btn-outline-warning btn-block btn-lg" onclick="onLeft();">NA</button>
+        </div>
+      </div><!--answer button ends-->
+
+      <!--calculate button-->
+      <button style="margin:15px 0px;color: black;" class="btn btn-primary btn-block btn-lg" onclick="onCalculate();">CALCULATE</button>
+
+      <!--your score labels-->
+      <h1>Your Marks</h1>
+      <h1>
+        <span id="yourScore">0</span><span>/</span><span id="totalMarks">0</span>
+      </h1>
+      <div style="height:27px;"></div>
+      <div class="row">
+        <div class="col-3">
+          <span id="yourPercentage">0</span><span>/100</span>
+        </div>
+        <div class="col-3">
+          <span id="noCorrect">0</span><span>/</span><span id="totalQuestions">0</span>
+        </div>
+        <div class="col-3">
+          <span id="noIncorrect">0</span><span>/</span><span id="totalQuestions">0</span>
+        </div>
+        <div class="col-3">
+          <span id="noLeft">0</span><span>/</span><span id="totalQuestions">0</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">Percentage</div>
+        <div class="col-3">Correct</div>
+        <div class="col-3">Incorrect</div>
+        <div class="col-3">Left</div>
+      </div>
+
+      <!--reset button-->
+      <button style="margin:15px 0px;" class="btn btn-outline-dark btn-block btn-lg" onclick="onReset();">RESET</button>
+    </div><!--container ends-->
+
+
+  <script src="./main.js"></script>
+
+  </body>
+</html>
