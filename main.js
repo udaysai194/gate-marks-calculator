@@ -7,9 +7,10 @@ var left = 0;
 var percentage = 0;
 var yourScore = 0;
 var totalMarks = 0;
+var totalLabel = document.getElementsByClassName("totalQuestions");
 
 function getSelect() {
-    marksWeight = document.getElementById("marksWeight").value;
+    marksWeight = parseInt(document.getElementById("marksWeight").value);
 }
 
 function getQNo() {
@@ -22,6 +23,9 @@ function onCorrect() {
     Qno++;
     noOfQ++;
     document.getElementById("QNoLabel").innerHTML = ""+Qno;
+    yourScore += marksWeight;
+    totalMarks += marksWeight;
+    
 }
 
 function onWrong() {
@@ -29,6 +33,8 @@ function onWrong() {
     Qno++;
     noOfQ++;
     document.getElementById("QNoLabel").innerHTML = ""+Qno;
+    yourScore -= marksWeight/3;
+    totalMarks += marksWeight;
 }
 
 function onLeft() {
@@ -36,11 +42,10 @@ function onLeft() {
     Qno++;
     noOfQ++;
     document.getElementById("QNoLabel").innerHTML = ""+Qno;
+    totalMarks += marksWeight;
 }
 
 function onCalculate() {
-    yourScore = marksWeight*correct - (marksWeight/3)*wrong;
-    totalMarks = marksWeight*noOfQ;
     percentage = (yourScore/totalMarks)*100;
 
     document.getElementById("yourScore").innerHTML = ""+yourScore.toFixed(2);
@@ -49,6 +54,10 @@ function onCalculate() {
     document.getElementById("noCorrect").innerHTML = ""+correct;
     document.getElementById("noIncorrect").innerHTML = ""+wrong;
     document.getElementById("noLeft").innerHTML = ""+left;
+    totalLabel[0].innerHTML = ""+noOfQ;
+    totalLabel[1].innerHTML = ""+noOfQ;
+    totalLabel[2].innerHTML = ""+noOfQ;
+
 }
 
 function onReset() {
@@ -71,4 +80,7 @@ function onReset() {
     document.getElementById("noCorrect").innerHTML = ""+correct;
     document.getElementById("noIncorrect").innerHTML = ""+wrong;
     document.getElementById("noLeft").innerHTML = ""+left;
+    totalLabel[0].innerHTML = ""+noOfQ;
+    totalLabel[1].innerHTML = ""+noOfQ;
+    totalLabel[2].innerHTML = ""+noOfQ;
 }
